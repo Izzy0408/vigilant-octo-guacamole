@@ -1,0 +1,126 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8">  
+    <title>图片轮播</title>  
+    <style type="text/css">  
+        .box {  
+            width: 1000px;  
+            height: 460px;  
+            position: relative;  
+            overflow: hidden;  
+        }  
+        .box-img {  
+            position: absolute;  
+            top: 50%;  
+            left: 50%;  
+            transform: translate(-50%, -50%); /* 向左上方移动自身宽高的一半，从而实现居中 */ 
+            opacity: 0;  
+            transition: opacity 1s ease-in-out; 
+               /* 其他可能的样式，例如过渡效果、边框、内边距等 */  
+    transition: opacity 0.5s ease; /* 示例：添加透明度过渡效果 */  
+    border: 2px solid #2c6cd2; /* 示例：添加边框 */  
+    padding: 10px; /* 示例：添加内边距 */  
+        }  
+        .box-img.active {  
+            opacity: 1;  
+        }  
+        .box-left, .box-right {  
+            position: absolute;  
+            width: 35px;  
+            height: 70px;  
+            background-color: rgba(0, 0, 0, 0.5);  
+            color: aqua;  
+            top: 50%;  
+            transform: translateY(-50%);  
+            border-radius: 0 5px 5px 0;  
+            text-align: center;  
+            line-height: 70px;  
+            cursor: pointer;  
+            z-index: 10;  
+        }  
+        .box-left {  
+            left: 10px;  
+            border-radius: 5px 0 0 5px; /* 左侧按钮的圆角 */  
+        }  
+        .box-right {  
+            right: 10px;  
+            border-radius: 0 5px 5px 0; /* 右侧按钮的圆角 */  
+        }  
+    </style>  
+</head>  
+<body bgcolor="#d6f3ff"> 
+
+   <div
+   class="relative w-[120.625rem] h-[67.5rem] overflow-hidden bg-[#d6f3ff]"
+   
+   
+   <div class="box">  
+    <!-- 使用<a>标签包裹每张图片，并设置相同的href属性 -->  
+    <a href="第四页2.html" target="_blank">  
+        <div class="box-img active">  
+            <img src="images/中国风5.png" alt="中国风5" width="100%" height="auto">  
+        </div>  
+    </a>  
+    <a href="第四页2.html" target="_blank">  
+        <div class="box-img">  
+            <img src="images/中国风1.png" alt="中国风1" width="100%" height="auto">  
+        </div>  
+    </a>  
+    <a href="第四页2.html" target="_blank">  
+        <div class="box-img">  
+            <img src="images/中国风4.png" alt="中国风4" width="100%" height="auto">  
+        </div>  
+    </a>  
+    <a href="第四页2.html" target="_blank">  
+        <div class="box-img">  
+            <img src="images/中国风6.png" alt="中国风6" width="100%" height="auto">  
+        </div>  
+    </a>  
+    <div class="box-left">&lt;</div>    
+    <div class="box-right">&gt;</div>  
+</div>
+    
+    </div>
+  
+    <script>  
+        var currentIndex = 0,  
+            boxImgs = document.querySelectorAll('.box-img'),  
+            imgCount = boxImgs.length;  
+  
+        // 自动轮播  
+        setInterval(function() {  
+            nextImage();  
+        }, 3000); // 每3秒切换一次  
+  
+        // 切换到下一张图片  
+        function nextImage() {  
+            removeActive();  
+            currentIndex = (currentIndex + 1) % imgCount;  
+            boxImgs[currentIndex].classList.add('active');  
+        }  
+  
+        // 切换到上一张图片  
+        function prevImage() {  
+            removeActive();  
+            currentIndex--;  
+            if (currentIndex < 0) currentIndex = imgCount - 1;  
+            boxImgs[currentIndex].classList.add('active');  
+        }  
+  
+        // 移除所有图片的active类  
+        function removeActive() {  
+            for (var i = 0; i < imgCount; i++) {  
+                boxImgs[i].classList.remove('active');  
+            }  
+        }  
+  
+        // 左侧按钮点击事件  
+        document.querySelector('.box-left').addEventListener('click', prevImage);  
+  
+        // 右侧按钮点击事件  
+        document.querySelector('.box-right').addEventListener('click', nextImage);  
+    </script>  
+    
+</body>  
+</html>

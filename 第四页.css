@@ -1,0 +1,47 @@
+.image-container {  
+    display: flex;  
+    justify-content: space-between; /* 确保图片之间有均匀的间距 */  
+    align-items: flex-start; /* 图片垂直对齐方式，这里默认从上开始 */  
+    padding: 180px; /* 调整为16px，之前你写的是160px，可能太多了 */  
+    margin-left: auto; /* 自动左边距，确保距离左边有相同的距离 */  
+    margin-right: auto; /* 自动右边距，确保距离右边有相同的距离 */  
+    max-width: 100%; /* 容器最大宽度为100%，防止图片超出视口 */  
+}  
+  
+.image-wrapper {  
+    position: relative;  
+    display: flex; /* 使用flex来确保图片和文本垂直居中（如果需要的话）*/  
+    align-items: center; /* 垂直居中 */  
+    justify-content: center; /* 水平居中 */  
+    margin-right:25px; /* 图片之间的间距，除了最后一张 */  
+}  
+  
+.image-wrapper:last-child {  
+    margin-right: 0; /* 移除最后一张图片的右边距 */  
+}  
+  
+.image {  
+    width: 300px; /* 图片宽度，你可以根据需要调整 */  
+    height: auto; /* 图片高度自动，保持原始图片的宽高比 */  
+    transition: opacity 0.3s ease; /* 平滑过渡效果 */  
+}  
+  
+.image-text {  
+    position: absolute;  
+    top: 50%; /* 根据需要调整位置 */  
+    left: 50%;  
+    transform: translate(-50%, -50%); /* 居中显示文本 */  
+    color: white; /* 根据背景调整文本颜色 */ 
+    font-size: 2em; /* 根据需要调整字体大小 */  
+    opacity: 0; /* 初始状态隐藏文本 */  
+    transition: opacity 0.3s ease; /* 平滑过渡效果 */  
+    pointer-events: none; /* 防止文本阻挡图片点击事件 */  
+}  
+  
+.image-wrapper:hover .image {  
+    opacity: 0.5; /* 鼠标移入时降低图片透明度 */  
+}  
+  
+.image-wrapper:hover .image-text {  
+    opacity: 1; /* 鼠标移入时显示文本 */  
+}

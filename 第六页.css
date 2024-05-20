@@ -1,0 +1,20 @@
+.music-text {  
+    position: absolute;  
+    text-align: left;  
+    font-size: 1.5rem; /* 注意：你可能需要使用rem或其他单位而不是4xl */  
+    font-family: 'Arail', sans-serif; /* 确保你的字体已正确加载 */  
+    font-weight: normal;  
+    color: rgb(255, 255, 255); /* 或者根据需要更改为白色 */  
+    cursor: pointer; /* 显示可点击的手形图标 */  
+    /* 其他样式... */  
+  }  
+    
+  /* 根据需要为白色文本添加类 */  
+  .music-text.white-text {  
+    color: rgb(255, 255, 255);  
+  }  
+    
+  /* 隐藏audio标签 */  
+  audio {  
+    display: none;  
+  }
